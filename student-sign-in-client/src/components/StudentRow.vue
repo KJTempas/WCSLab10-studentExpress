@@ -3,7 +3,7 @@
    <!--template elements must contain exactly one child element(like the <tr>)  -->
        <!--but that element can contain many children   -->
    <!--<tr v-bind:class="'present-' + student.present">-->
-    <tf class="student-row" v-bind:class="'present-' + student.present">
+    <tr class="student-row" v-bind:class="'present-' + student.present">
 
         <td>{{ student.name }}</td>
         <td>{{ student.starID }}</td>
