@@ -40,7 +40,7 @@ export default {
     font-style: bold;
 }
 .present-false {
-    font-color: blue;
+    color: blue;
     font-style: italic;
 }
 </style>
