@@ -46,8 +46,17 @@ export default {
      })
     },
     studentArrivedOrLeft(student) {
+      this.$student_api.updateStudent(student).then( () => {
+        this.message = student.present ? 'Welcome,' : 'Goodbye, '
+        this.name = student.name
+        //call method below
+        this.updateStudents()
+      })
     },
     studentDeleted(student) {
+      this.$student_api.deleteStudent(student.id).then( () => {
+        this.updateStudents()
+      })
     },
     updateStudents() {
       this.$student_api.getAllStudents().then( students => {

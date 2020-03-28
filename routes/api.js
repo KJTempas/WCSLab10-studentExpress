@@ -16,6 +16,20 @@ let router = express.Router()
             return res.status(201).send('ok')
         })
     })
-    
+    //this route for modifying a student
+    router.patch('/students/:id', function(req, res, next) {
+        Student.update( req.body, { where: { id: req.params.id} })
+            .then( rowsModified =>  {
+                return res.send('ok')
+                
+            })
+    })
+  //this route for deleting a student  
+    router.delete('/students/:id', function(req, res, next){
+        Student.destroy({where: {id: req.params.id}})
+            .then( rowsModified => {
+                return res.send('ok')
+            })
+    })
 
     module.exports = router
