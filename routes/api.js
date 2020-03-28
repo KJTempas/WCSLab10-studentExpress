@@ -1,8 +1,9 @@
-var express = require('express')
+let express = require('express')
+let db = require('../models')
+let Student = db.Student
 
-module.exports = function(Student) {
+let router = express.Router()
 
-    var router = express.Router()
 //the first route - get students, return as JSON
     router.get('/students', function(req, res, next){
         Student.findAll().then( students => {
@@ -15,5 +16,6 @@ module.exports = function(Student) {
             return res.status(201).send('ok')
         })
     })
-    return router
-}
+    
+
+module.exports = router
