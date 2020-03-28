@@ -13,5 +13,5 @@ app.use('/api', api_routes)
 
 //start the server running
 let server = app.listen(process.env.PORT || 3000, function() {
-    console.log('Express servert running on port', server.address().port)
+    console.log('Express server running on port', server.address().port)
 })

@@ -34,20 +34,25 @@ export default {
     StudentTable,
     StudentMessage
   },
+  mounted() {
+    this.updateStudents() //call updateStudents method
+  },
   methods: {
     newStudentAdded(student) {
-      this.students.push(student)
-      this.students.sort(function(s1, s2) { //keep students sorted, case insensitive
-        return s1.name.toLowerCase() > s2.name.toLowerCase() ? -1 : 1
-      })
+      //call addStudent method in StudentService.js
+     this.$student_api.addStudent(student).then( student => {
+       //after req is complete, call updateStudents to update student array
+       this.updateStudents()
+     })
     },
     studentArrivedOrLeft(student) {
-      this.message = student.present ? 'Welcome,' : 'Goodbye, '
-      this.name = student.name
     },
     studentDeleted(student) {
-      //this filters out deleted student; makes new array w/out deleted student
-      this.students = this.students.filter( function(s) { return s != student })
+    },
+    updateStudents() {
+      this.$student_api.getAllStudents().then( students => {
+        this.students = students //setting this.students to students in the Vue model
+      })
     }
   }
 }
