@@ -15,6 +15,7 @@ export default {
         })
     },
     updateStudent(student) {
+        //url will be base URL /id
         return axios.patch(`${base_url}/${student.id}`, student).then(response => {
             return response.data
         })
