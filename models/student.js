@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
         }, starID: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true//this value must be iunique
+            unique: true//this value must be unique
         }, present: {
             type: DataTypes.BOOLEAN,
             allowNull: false,

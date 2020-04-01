@@ -12,7 +12,7 @@ if (config.use_env_variable) {
     sequelize = new Sequelize(config)
 }
 
-let model = sequelize['import']['./students.js']
+let model = sequelize['import']['./student.js']
 db[model.name] = model
 
 db.sequelize = sequelize
