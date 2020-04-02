@@ -18,7 +18,7 @@ let router = express.Router()
             return res.status(201).send('ok')
         }).catch( err => {
             if (err instanceof Sequelize.ValidationError) {
-                let message = err.errors.map ( e => e.message)
+                let messages = err.errors.map ( e => e.message)
                 //400 = bad request from use; return message also
                 return res.status(400).json(messages)
             }
