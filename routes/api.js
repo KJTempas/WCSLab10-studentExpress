@@ -7,7 +7,7 @@ let router = express.Router()
 
 //the first route - get students, return as JSON
     router.get('/students', function(req, res, next){
-        Student.findAll( {order: ['name']} ).then( students => {
+        Student.findAll( {order: ['starID']} ).then( students => {
             return res.json(students)
             //catch errors
         }).catch( err=> next(err))
